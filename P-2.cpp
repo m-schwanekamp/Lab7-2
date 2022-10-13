@@ -6,20 +6,9 @@ using namespace std;
 
 bool all_the_same(int x, int y, int z);
 bool all_different(int x, int y, int z);
-bool sorted(int x, int y, int z){
-     if (x != y && y != z && x != z) {
-        cout << "Numbers are not all the same.\n";
-        cout << "Numbers are all different.\n";
-        cout << "Numbers are not sorted." << endl;
-    }
-    if (x == y && y == z && x == z) {
-        cout << "Numbers are all the same.\n";
-        cout << "Numbers are not all different.\n";
-        cout << "Numbers are sorted."<< endl;
-    }
-}
+bool sorted(int x, int y, int z);
 
-int main () {
+int main() {
     int x;
     int y;
     int z;
@@ -28,7 +17,60 @@ int main () {
     cin >> x >> y >> z;
     cout << endl;
 
-    bool description = sorted(x, y, z);
-    cout << description << endl;
-    return 0;
+
+    if (all_the_same(x, y, z) == true) {
+        cout << "Numbers are not all the same.";
+    }
+    if (all_the_same(x, y, z) == false) {
+        cout << "Numbers are all the same.";
+    }
+
+    if (all_different(x, y, z) == true) {
+        cout << "Numbers are all different.";
+    }
+    if (all_different(x, y, z) == false) {
+        cout << "Numbers are not all different.";
+    }
+
+    if (sorted(x, y, z) == true) {
+        cout << "Numbers are not sorted.";
+    }
+    if (sorted(x, y, z) == false) {
+        cout << "Numbers are sorted.";
+    }
+  
 }
+bool all_the_same(int x, int y, int z) {
+    bool result=false;
+    if (x != y && y != z && x != z) {
+        result = true;
+    }
+    if (x == y && y == z && x == z) {
+        result = false;
+    }
+    
+    return result;
+}
+bool all_different(int x, int y, int z) {
+    bool result;
+    if (x != y && y != z && x != z) {
+        result = true;
+    }
+    if (x == y && y == z && x == z) {
+        result = false;
+    }
+  
+    return result;
+}
+bool sorted(int x, int y, int z) {
+    bool result;
+    if (x != y && y != z && x != z) {
+        result = true;
+    }
+    if (x <= y && y <= z && x <= z) {
+        result = false;
+    }
+    
+    return result;
+}
+
